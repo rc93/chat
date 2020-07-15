@@ -9,14 +9,14 @@ const SendMessage = (props) => {
     }
     const handleMessage = () =>{
         setMessages(messages => [...messages, textInput])
-        props.getMessages(messages)
     }
     useEffect(() => {
         if(props.updatedList)
         {
             setMessages(messages=>[...props.updatedList])
         }
-      }, [props.updatedList]);
+        props.getMessages(messages)
+      }, [props.updatedList, messages]);
     
     const Button = styled.button `
       font-size: 1em;
